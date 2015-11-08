@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="QSC_UWP.Views.Scenario2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QSC_UWP.Views"
+    xmlns:ctl="using:QSC_UWP.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <CommandBar x:Name="TopBar"
+                    VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <AppBarButton Icon="Edit" Label="Edit"/>
+            <AppBarButton Icon="Delete" Label="Delete"/>
+            <AppBarSeparator/>
+            <AppBarToggleButton Icon="Sort" Label="Sort"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="{x:Bind ViewModel.SecondaryCmd1Title}"/>
+                <AppBarButton Label="{x:Bind ViewModel.SecondaryCmd2Title}"/>
+                <AppBarButton Label="{x:Bind ViewModel.SecondaryCmd3Title}"/>
+            </CommandBar.SecondaryCommands>
+            <CommandBar.Content>
+                <ctl:PageHeader>
+                    <ctl:PageHeader.HeaderContent>
+                        <TextBlock Text="{x:Bind ViewModel.Title}"
+                                   Style="{ThemeResource PageTitleTextBlockStyle}"
+                                   TextWrapping="NoWrap"/>
+                        
+                    </ctl:PageHeader.HeaderContent>
+                </ctl:PageHeader>
+            </CommandBar.Content>
+        </CommandBar>
+        
+        <Grid Grid.Row="1" EntranceNavigationTransitionInfo.IsTargetElement="True">
+            <TextBlock Style="{ThemeResource TitleTextBlockStyle}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{x:Bind ViewModel.ContentString}"></TextBlock>
+        </Grid>
+    </Grid>
+</Page>
